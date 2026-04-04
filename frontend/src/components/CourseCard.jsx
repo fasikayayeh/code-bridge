@@ -24,36 +24,36 @@ const CourseCard = ({ course, progress, setSavedProgress }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col h-full cursor-pointer" onClick={handleStartContinue}>
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col h-full cursor-pointer" onClick={handleStartContinue}>
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex justify-between items-start mb-4">
-          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center border border-blue-100">
+          <div className="w-12 h-12 bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center border border-blue-100 dark:border-gray-600">
             <IconComponent className="w-6 h-6" />
           </div>
           <span className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide ${
-            course.level === 'Beginner' ? 'bg-green-100 text-green-700' :
-            course.level === 'Intermediate' ? 'bg-orange-100 text-orange-700' :
-            'bg-red-100 text-red-700'
+            course.level === 'Beginner' ? 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300' :
+            course.level === 'Intermediate' ? 'bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300' :
+            'bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300'
           }`}>
             {t[course.level.toLowerCase()] || course.level}
           </span>
         </div>
 
         <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">{course.title}</h3>
-          <p className="text-gray-600 text-sm mb-4 line-clamp-3">{course.description}</p>
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight">{course.title}</h3>
+          <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">{course.description}</p>
         </div>
 
-        <div className="flex items-center text-sm text-gray-500 mb-4 pt-4 border-t border-gray-100">
+        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4 pt-4 border-t border-gray-100 dark:border-gray-700">
           <div className="flex flex-1 items-center space-x-1.5"><Clock className="w-4 h-4" /><span>{course.duration}</span></div>
           <div className="flex items-center space-x-1.5"><BookOpen className="w-4 h-4" /><span>{course.modulesCount} {t.modules}</span></div>
         </div>
 
         <div className="mb-4">
-          <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+          <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
             <div className={`h-2 rounded-full transition-all duration-500 ${progress === 100 ? 'bg-green-500' : 'bg-blue-600'}`} style={{ width: `${progress}%` }}></div>
           </div>
-          <p className="text-xs text-gray-500 mt-1 font-medium">{progress}{t.pct_completed}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">{progress}{t.pct_completed}</p>
         </div>
 
         <button 

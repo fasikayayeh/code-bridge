@@ -6,6 +6,7 @@ const courseSchema = new mongoose.Schema({
   level: { type: String, required: true },
   section: { type: String, required: true },
   duration: { type: String, required: true },
+  hours: { type: Number, required: true },
   modulesCount: { type: Number, required: true },
   icon: { type: String, required: true },
   order: { type: Number, required: true }

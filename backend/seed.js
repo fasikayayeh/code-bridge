@@ -8,16 +8,12 @@ const Progress = require('./models/Progress');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/codebridge';
 
 const coursesData = [
-  { title: 'HTML', description: 'Learn the core markup structure of the web.', level: 'Beginner', section: 'Frontend Development', duration: '1 week', modulesCount: 4, icon: 'Layout', order: 1 },
-  { title: 'CSS', description: 'Design beautiful and responsive layouts.', level: 'Beginner', section: 'Frontend Development', duration: '2 weeks', modulesCount: 6, icon: 'Monitor', order: 2 },
-  { title: 'JavaScript', description: 'Master the logic and interactivity of the web.', level: 'Beginner', section: 'Frontend Development', duration: '4 weeks', modulesCount: 12, icon: 'Code', order: 3 },
-  { title: 'React', description: 'Build scalable Single Page Applications.', level: 'Intermediate', section: 'Frontend Development', duration: '6 weeks', modulesCount: 15, icon: 'Code', order: 4 },
-  { title: 'Node.js', description: 'Server-side JavaScript environment.', level: 'Intermediate', section: 'Backend Development', duration: '3 weeks', modulesCount: 10, icon: 'Server', order: 5 },
-  { title: 'MongoDB', description: 'NoSQL document-based scalable database.', level: 'Intermediate', section: 'Database', duration: '2 weeks', modulesCount: 6, icon: 'Database', order: 6 },
-  { title: 'PHP', description: 'Dynamic server-side scripting language.', level: 'Intermediate', section: 'Backend Development', duration: '3 weeks', modulesCount: 8, icon: 'Globe', order: 7 },
-  { title: 'Python', description: 'Versatile language for backend, AI, and scripting.', level: 'Intermediate', section: 'Programming Languages', duration: '4 weeks', modulesCount: 10, icon: 'Terminal', order: 8 },
-  { title: 'Java', description: 'Object-oriented, robust backend programming.', level: 'Advanced', section: 'Programming Languages', duration: '5 weeks', modulesCount: 14, icon: 'Code', order: 9 },
-  { title: 'C++', description: 'High-performance systems and application programming.', level: 'Advanced', section: 'Programming Languages', duration: '6 weeks', modulesCount: 16, icon: 'Terminal', order: 10 }
+  { title: 'HTML', description: 'Learn the core markup structure of the web.', level: 'Beginner', section: 'Frontend Development', duration: '1 week', hours: 4, modulesCount: 4, icon: 'Layout', order: 1 },
+  { title: 'CSS', description: 'Design beautiful and responsive layouts.', level: 'Beginner', section: 'Frontend Development', duration: '2 weeks', hours: 6, modulesCount: 6, icon: 'Monitor', order: 2 },
+  { title: 'JavaScript', description: 'Master the logic and interactivity of the web.', level: 'Beginner', section: 'Frontend Development', duration: '4 weeks', hours: 12, modulesCount: 12, icon: 'Code', order: 3 },
+  { title: 'React', description: 'Build scalable Single Page Applications.', level: 'Intermediate', section: 'Frontend Development', duration: '6 weeks', hours: 15, modulesCount: 15, icon: 'Code', order: 4 },
+  { title: 'Node.js', description: 'Server-side JavaScript environment.', level: 'Advanced', section: 'Backend Development', duration: '3 weeks', hours: 10, modulesCount: 10, icon: 'Server', order: 5 },
+  { title: 'PHP', description: 'Dynamic server-side scripting language.', level: 'Intermediate', section: 'Backend Development', duration: '3 weeks', hours: 8, modulesCount: 8, icon: 'Globe', order: 6 },
 ];
 
 const mdnLessons = {

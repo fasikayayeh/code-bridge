@@ -3,9 +3,16 @@ const router = express.Router();
 const axios = require('axios');
 const Groq = require('groq-sdk');
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+let groq = null;
+
+if (GROQ_API_KEY) {
+  groq = new Groq({
+    apiKey: GROQ_API_KEY,
+  });
+} else {
+  console.error('[Startup] GROQ_API_KEY is not set. AI chat route will be unavailable until the environment variable is configured.');
+}
 
 // 🌍 ROBUST MULTI-SERVICE TRANSLATION FUNCTION
 const translate = async (text, target, source = "auto") => {
@@ -74,6 +81,11 @@ router.post("/chat", async (req, res) => {
     }
 
     // 2️⃣ Send to Groq
+    if (!groq) {
+      console.error('[Groq] No API key available, cannot initialize Groq client.');
+      return res.json({ reply: "AI service is temporarily unavailable because the GROQ_API_KEY is missing from the server configuration." });
+    }
+
     let reply = "";
     try {
       const completion = await groq.chat.completions.create({
